@@ -1,11 +1,8 @@
 # DLL-VMC
-DLL - Various Mod Components
 
-Versions prior to v68 can be obtained from Gedemon's repository via (eg for version 41)
-  https://github.com/Gedemon/Civ5-DLL/archive/PNM_DLL_v.41.zip
-  git clone --depth 1 --branch PNM_DLL_v.41 https://github.com/Gedemon/Civ5-DLL.git
-  
-Version v68 and later can be obtained as (eg for version 68)
-  https://github.com/whoward69/DLL-VMC/archive/PNM_DLL_v.68.zip
-  git clone --depth 1 --branch PNM_DLL_v.68 https://github.com/whoward69/DLL-VMC.git
+Custom version of the Civilization V Brave New World DLL based on whoward69's "DLL - Various Mod Components" version 97.
+
+Built with all functionality of whoward's DLL up to v97 - so is compatible with all mods that need it.
+
+Forked from v97 of DLL-VMC.
 
