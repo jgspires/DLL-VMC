@@ -28,12 +28,13 @@
  *****   FOR THE LOVE OF GOD - GET YOUR OWN INTERNAL GUID FOR THE DLL   *****
  *****                                                                  *****
  *****                   AND STOP USING MINE!!!!!                       *****
+ *****                        Kebeq: Done!                              *****
  *****                                                                  *****
  ****************************************************************************
  ****************************************************************************/
-#define MOD_DLL_GUID {0xcf7d28a8, 0x1684, 0x4420, { 0xaf, 0x45, 0x11, 0x7, 0xc, 0xb, 0x8c, 0x4a }} // {CF7D28A8-1684-4420-AF45-11070C0B8C4A}
-#define MOD_DLL_NAME "Pick'N'Mix BNW DLL"
-#define MOD_DLL_VERSION_NUMBER ((uint) 97)
+#define MOD_DLL_GUID { 0x7a3cce4, 0x1de7, 0x464a, { 0x93, 0x2, 0xf4, 0x24, 0x7a, 0x92, 0x44, 0xe5 }} // {07A3CCE4-1DE7-464A-9302-F4247A9244E5}
+#define MOD_DLL_NAME "Kebeq's BNW DLL"
+#define MOD_DLL_VERSION_NUMBER ((uint) 97.1)
 #define MOD_DLL_VERSION_STATUS ""			// a (alpha), b (beta) or blank (released)
 #define MOD_DLL_CUSTOM_BUILD_NAME ""
 
