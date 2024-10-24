@@ -9737,7 +9737,7 @@ int CvCity::GetLocalHappiness() const
 	{
 		if(GetGarrisonedUnit() != NULL)
 		{
-			iLocalHappiness++;
+			iLocalHappiness += iHappinessPerGarrison;
 		}
 	}
 
