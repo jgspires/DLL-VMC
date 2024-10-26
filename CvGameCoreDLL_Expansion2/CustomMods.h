@@ -747,8 +747,8 @@
 
 // Kebeq's DLL Features
 
-// Misc LUA API Bug Fixes (even more) (v97.1 onwards). See Git commits for details.
-#define MOD_BUGFIX_KBQ_LUA_API						(true)
+// Fixes garrison happiness being limited to 1 (v97.1)
+#define MOD_BUGFIX_GARRISON_HAPPINESS				(true)
 
 // End Kebeq's DLL Features
 
