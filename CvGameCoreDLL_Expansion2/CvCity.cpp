@@ -9737,7 +9737,7 @@ int CvCity::GetLocalHappiness() const
 	{
 		if(GetGarrisonedUnit() != NULL)
 		{
-#ifdef MOD_BUGFIX_GARRISON_HAPPINESS // Fixes garrison happiness being limited to +1.
+#if defined(MOD_BUGFIX_GARRISON_HAPPINESS) // Fixes garrison happiness being limited to +1.
 			iLocalHappiness += iHappinessPerGarrison;
 #else
 			iLocalHappiness++;
