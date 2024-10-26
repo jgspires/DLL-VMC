@@ -745,6 +745,12 @@
 // Fixes a bug in the pathfinder code for embarking
 #define MOD_BUGFIX_EMBARKING_PATHFINDER             gCustomMods.isBUGFIX_EMBARKING_PATHFINDER()
 
+// Kebeq's DLL Features
+
+// Misc LUA API Bug Fixes (even more) (v97.1 onwards). See Git commits for details.
+#define MOD_BUGFIX_KBQ_LUA_API						(true)
+
+// End Kebeq's DLL Features
 
 #endif // ACHIEVEMENT_HACKS
 

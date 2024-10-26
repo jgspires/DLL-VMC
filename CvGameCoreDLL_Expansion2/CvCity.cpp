@@ -9737,7 +9737,11 @@ int CvCity::GetLocalHappiness() const
 	{
 		if(GetGarrisonedUnit() != NULL)
 		{
+#ifdef MOD_BUGFIX_KBQ_LUA_API // Fixes garrison happiness being limited to +1.
 			iLocalHappiness += iHappinessPerGarrison;
+#else
+			iLocalHappiness++;
+#endif
 		}
 	}
 
