@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/CvGameCoreDLL.vs2015
+/BuildOutput/VS2010_ModWin32
+/BuildTemp/VS2010_CvGameCoreDLL_Expansion2ModWin32
+/CvGameCoreDLL.vs2015.suo
