@@ -492,7 +492,7 @@ int CustomMods::getOption(string sOption, int defValue) {
 
 		// Kebeq's DLL Mod Options
 
-		MOD_OPT_CACHE(KBQ_DIPLOMACY_NO_AI_GOLD_GIFTS);
+		MOD_OPT_CACHE(KBQ_AI_NO_CS_GOLD_GIFTS);
 
 		m_bInit = true;
 	}

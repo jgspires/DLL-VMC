@@ -751,7 +751,7 @@
 #define MOD_BUGFIX_GARRISON_HAPPINESS				(true)
 
 // Prevents AI from gold-gifting to city states. (KBQ v97.3)
-#define MOD_DIPLOMACY_NO_AI_GOLD_GIFTS				gCustomMods.isKBQ_DIPLOMACY_NO_AI_GOLD_GIFTS()
+#define MOD_AI_NO_CS_GOLD_GIFTS						gCustomMods.isKBQ_AI_NO_CS_GOLD_GIFTS()
 
 // End Kebeq's DLL Options
 
@@ -1383,7 +1383,7 @@ public:
 
 	// Kebeq's DLL Mod Options
 
-	MOD_OPT_DECL(KBQ_DIPLOMACY_NO_AI_GOLD_GIFTS);
+	MOD_OPT_DECL(KBQ_AI_NO_CS_GOLD_GIFTS);
 
 protected:
 	bool m_bInit;

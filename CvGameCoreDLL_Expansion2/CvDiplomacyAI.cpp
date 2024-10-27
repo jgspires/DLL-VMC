@@ -12895,7 +12895,7 @@ void CvDiplomacyAI::DoContactMinorCivs()
 	bool bWantsToMakeGoldGift = false;
 
 	// Mod option check for disabling AI Gold Gifts to City States
-	if (!MOD_DIPLOMACY_NO_AI_GOLD_GIFTS)
+	if (!MOD_AI_NO_CS_GOLD_GIFTS)
 	{
 		// If we're a highly diplomatic leader, then always look for an opportunity
 		if(iDiplomacyFlavor >= /*4*/ GC.getMC_ALWAYS_GIFT_DIPLO_THRESHOLD() ||
