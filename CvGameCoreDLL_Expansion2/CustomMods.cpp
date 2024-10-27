@@ -490,6 +490,10 @@ int CustomMods::getOption(string sOption, int defValue) {
 		MOD_OPT_CACHE(BUGFIX_HOVERING_PATHFINDER);
 		MOD_OPT_CACHE(BUGFIX_EMBARKING_PATHFINDER);
 
+		// Kebeq's DLL Mod Options
+
+		MOD_OPT_CACHE(KBQ_DIPLOMACY_NO_AI_GOLD_GIFTS);
+
 		m_bInit = true;
 	}
 

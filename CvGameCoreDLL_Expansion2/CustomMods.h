@@ -745,12 +745,15 @@
 // Fixes a bug in the pathfinder code for embarking
 #define MOD_BUGFIX_EMBARKING_PATHFINDER             gCustomMods.isBUGFIX_EMBARKING_PATHFINDER()
 
-// Kebeq's DLL Features
+// Kebeq's DLL Options
 
 // Fixes garrison happiness being limited to 1 (v97.1)
 #define MOD_BUGFIX_GARRISON_HAPPINESS				(true)
 
-// End Kebeq's DLL Features
+// Prevents AI from gold-gifting to city states. (KBQ v97.3)
+#define MOD_DIPLOMACY_NO_AI_GOLD_GIFTS				gCustomMods.isKBQ_DIPLOMACY_NO_AI_GOLD_GIFTS()
+
+// End Kebeq's DLL Options
 
 #endif // ACHIEVEMENT_HACKS
 
@@ -1377,6 +1380,10 @@ public:
 	MOD_OPT_DECL(BUGFIX_NO_HOVERING_REBELS);
 	MOD_OPT_DECL(BUGFIX_HOVERING_PATHFINDER);
 	MOD_OPT_DECL(BUGFIX_EMBARKING_PATHFINDER);
+
+	// Kebeq's DLL Mod Options
+
+	MOD_OPT_DECL(KBQ_DIPLOMACY_NO_AI_GOLD_GIFTS);
 
 protected:
 	bool m_bInit;

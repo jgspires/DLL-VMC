@@ -12873,9 +12873,9 @@ void CvDiplomacyAI::DoContactMinorCivs()
 	if(GetPlayer()->IsAbleToAnnexCityStates())
 	{
 		if(bFoundCity || bExpandLikeCrazy || bExpandToOtherContinents ||
-		        GetStateAllWars() == STATE_ALL_WARS_LOSING ||
-		        IsGoingForWorldConquest() ||
-		        m_pPlayer->calculateGoldRate() > 100)
+			GetStateAllWars() == STATE_ALL_WARS_LOSING ||
+			IsGoingForWorldConquest() ||
+			m_pPlayer->calculateGoldRate() > 100)
 		{
 			bWantsToBuyout = true;
 		}
@@ -12894,27 +12894,31 @@ void CvDiplomacyAI::DoContactMinorCivs()
 	// **************************
 	bool bWantsToMakeGoldGift = false;
 
-	// If we're a highly diplomatic leader, then always look for an opportunity
-	if(iDiplomacyFlavor >= /*4*/ GC.getMC_ALWAYS_GIFT_DIPLO_THRESHOLD() ||
-	        IsGoingForDiploVictory() ||
-	        IsGoingForCultureVictory() ||
-	        GetPlayer()->GetEconomicAI()->IsSavingForThisPurchase(PURCHASE_TYPE_MINOR_CIV_GIFT) ||
-	        IsHasActiveGoldQuest() ||
-	        m_pPlayer->calculateGoldRate() > 100) // if we are very wealthy always do this
+	// Mod option check for disabling AI Gold Gifts to City States
+	if (!MOD_DIPLOMACY_NO_AI_GOLD_GIFTS)
 	{
-		bWantsToMakeGoldGift = true;
-	}
-	// Otherwise, do a random roll
-	else
-	{
-		int iThreshold = iDiplomacyFlavor* /*5*/ GC.getMC_SOMETIMES_GIFT_RAND_MULTIPLIER();
-		int iRandRoll = GC.getGame().getJonRandNum(100, "Diplomacy AI: good turn to make a gold gift to a minor?");
-
-		// Threshold will be 15 for a player (3 flavor * 5)
-		// Threshold will be 5 for non-diplomatic player (2 flavor * 5)
-
-		if(iRandRoll < iThreshold)
+		// If we're a highly diplomatic leader, then always look for an opportunity
+		if(iDiplomacyFlavor >= /*4*/ GC.getMC_ALWAYS_GIFT_DIPLO_THRESHOLD() ||
+			IsGoingForDiploVictory() ||
+			IsGoingForCultureVictory() ||
+			GetPlayer()->GetEconomicAI()->IsSavingForThisPurchase(PURCHASE_TYPE_MINOR_CIV_GIFT) ||
+			IsHasActiveGoldQuest() ||
+			m_pPlayer->calculateGoldRate() > 100) // if we are very wealthy always do this
+		{
 			bWantsToMakeGoldGift = true;
+		}
+		// Otherwise, do a random roll
+		else
+		{
+			int iThreshold = iDiplomacyFlavor* /*5*/ GC.getMC_SOMETIMES_GIFT_RAND_MULTIPLIER();
+			int iRandRoll = GC.getGame().getJonRandNum(100, "Diplomacy AI: good turn to make a gold gift to a minor?");
+
+			// Threshold will be 15 for a player (3 flavor * 5)
+			// Threshold will be 5 for non-diplomatic player (2 flavor * 5)
+
+			if(iRandRoll < iThreshold)
+				bWantsToMakeGoldGift = true;
+		}
 	}
 
 	// **************************
