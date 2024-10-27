@@ -7526,6 +7526,12 @@ public:
 	GD_INT_DEF(PLOT_INFLUENCE_COST_VISIBLE_DIVISOR)
 #endif
 
+	// Kebeq's DLL Defines
+
+#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
+	GD_INT_DEF(CS_PERSONAL_QUESTS_LENGTH)
+#endif
+
 	////////////// END DEFINES //////////////////
 
 	void setDLLIFace(ICvEngineUtility4* pDll)
@@ -9586,6 +9592,12 @@ protected:
 
 #if defined(MOD_UI_CITY_EXPANSION)
 	GD_INT_DECL(PLOT_INFLUENCE_COST_VISIBLE_DIVISOR);
+#endif
+
+	// Kebeq's DLL Defines
+
+#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
+	GD_INT_DECL(CS_PERSONAL_QUESTS_LENGTH);
 #endif
 
 	// DLL interface

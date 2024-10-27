@@ -155,7 +155,14 @@ int CvMinorCivQuest::GetEndTurn() const
 	// Other quests are not time-sensitive
 	else
 	{
+		// Unless personal quest expiration custom mod option is enabled. 
+#ifdef MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES
+		if (GC.getCS_PERSONAL_QUESTS_LENGTH() > 0)
+			iLength = GC.getCS_PERSONAL_QUESTS_LENGTH();
+		else return NO_TURN;
+#else
 		return NO_TURN;
+#endif
 	}
 #if defined(MOD_EVENTS_QUESTS)
 	}
@@ -1112,7 +1119,7 @@ void CvMinorCivQuest::DoStartQuest(int iStartTurn)
 		m_iData1 = ePlayerToFind;
 
 		const char* strCivKey = GET_PLAYER(ePlayerToFind).getCivilizationShortDescriptionKey();
-
+		
 		strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_QUEST_FIND_PLAYER");
 		strMessage << strCivKey;
 		strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_SUMMARY_QUEST_FIND_PLAYER");
@@ -5586,6 +5593,14 @@ ResourceTypes CvMinorCivAI::GetNearbyResourceForQuest(PlayerTypes ePlayer)
 			{
 				continue;
 			}
+
+#if defined(MOD_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES)
+			// Cannot be City State-exclusive (mercantile) Resources (Jewelry, Porcelain)
+			if(MOD_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES && pkResourceInfo->isOnlyMinorCivs())
+			{
+				continue;
+			}
+#endif
 
 			// Minor can't already have this Resource
 			if(GetPlayer()->getNumResourceTotal(eResource, /*bIncludeImport*/ true) > 0)

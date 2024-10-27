@@ -1916,6 +1916,12 @@ CvGlobals::CvGlobals() :
 	GD_INT_INIT(PLOT_INFLUENCE_COST_VISIBLE_DIVISOR, 5),
 #endif
 
+	// Kebeq's DLL Defines
+
+#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
+	GD_INT_INIT(CS_PERSONAL_QUESTS_LENGTH, 30),
+#endif
+
 	m_pEconomicAIStrategies(NULL),
 	m_pCitySpecializations(NULL),
 	m_pTacticalMoves(NULL),
@@ -6104,6 +6110,14 @@ void CvGlobals::cacheGlobals()
 #if defined(MOD_UI_CITY_EXPANSION)
 	if (MOD_UI_CITY_EXPANSION) {
 		GD_INT_CACHE(PLOT_INFLUENCE_COST_VISIBLE_DIVISOR);
+	}
+#endif
+
+	// Kebeq's DLL Defines
+
+#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
+	if (MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES) {
+		GD_INT_CACHE(CS_PERSONAL_QUESTS_LENGTH);
 	}
 #endif
 }
