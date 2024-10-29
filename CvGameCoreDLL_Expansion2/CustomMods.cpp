@@ -495,7 +495,6 @@ int CustomMods::getOption(string sOption, int defValue) {
 		MOD_OPT_CACHE(KBQ_AI_NO_CS_GOLD_GIFTS);
 		
 		MOD_OPT_CACHE(KBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES);
-		MOD_OPT_CACHE(KBQ_GLOBAL_CS_QUEST_PERSONAL_EXPIRES);
 
 		m_bInit = true;
 	}

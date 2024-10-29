@@ -755,9 +755,6 @@
 
 // Prevents city state "Connect Resource" quests from asking for unique city state Luxuries (Jewelry, Porcelain etc.) (KBQ v97.4)
 #define MOD_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES		gCustomMods.isKBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES()
-// Makes it so all personal city state quests expire after a given amount of turns. (KBQ v97.4)
-// Global quests still use the standard "CONTEST_LENGTH" DB define for duration.
-#define MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES		gCustomMods.isKBQ_GLOBAL_CS_QUEST_PERSONAL_EXPIRES()
 
 // End Kebeq's DLL Options
 
@@ -1392,7 +1389,6 @@ public:
 	MOD_OPT_DECL(KBQ_AI_NO_CS_GOLD_GIFTS);
 
 	MOD_OPT_DECL(KBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES);
-	MOD_OPT_DECL(KBQ_GLOBAL_CS_QUEST_PERSONAL_EXPIRES);
 
 protected:
 	bool m_bInit;

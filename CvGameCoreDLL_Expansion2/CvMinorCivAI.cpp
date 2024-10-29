@@ -155,14 +155,7 @@ int CvMinorCivQuest::GetEndTurn() const
 	// Other quests are not time-sensitive
 	else
 	{
-		// Unless personal quest expiration custom mod option is enabled. 
-#ifdef MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES
-		if (GC.getCS_PERSONAL_QUESTS_LENGTH() > 0)
-			iLength = GC.getCS_PERSONAL_QUESTS_LENGTH();
-		else return NO_TURN;
-#else
 		return NO_TURN;
-#endif
 	}
 #if defined(MOD_EVENTS_QUESTS)
 	}

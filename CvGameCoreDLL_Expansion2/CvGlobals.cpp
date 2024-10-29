@@ -1918,9 +1918,7 @@ CvGlobals::CvGlobals() :
 
 	// Kebeq's DLL Defines
 
-#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
-	GD_INT_INIT(CS_PERSONAL_QUESTS_LENGTH, 30),
-#endif
+	// There was a define here - it's gone now.
 
 	m_pEconomicAIStrategies(NULL),
 	m_pCitySpecializations(NULL),
@@ -6115,11 +6113,7 @@ void CvGlobals::cacheGlobals()
 
 	// Kebeq's DLL Defines
 
-#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
-	if (MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES) {
-		GD_INT_CACHE(CS_PERSONAL_QUESTS_LENGTH);
-	}
-#endif
+
 }
 
 

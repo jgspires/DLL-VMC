@@ -7528,9 +7528,6 @@ public:
 
 	// Kebeq's DLL Defines
 
-#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
-	GD_INT_DEF(CS_PERSONAL_QUESTS_LENGTH)
-#endif
 
 	////////////// END DEFINES //////////////////
 
@@ -9596,9 +9593,6 @@ protected:
 
 	// Kebeq's DLL Defines
 
-#if defined(MOD_GLOBAL_CS_QUEST_PERSONAL_EXPIRES)
-	GD_INT_DECL(CS_PERSONAL_QUESTS_LENGTH);
-#endif
 
 	// DLL interface
 	ICvEngineUtility4* m_pDLL;
