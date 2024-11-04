@@ -34,7 +34,7 @@
  ****************************************************************************/
 #define MOD_DLL_GUID { 0x7a3cce4, 0x1de7, 0x464a, { 0x93, 0x2, 0xf4, 0x24, 0x7a, 0x92, 0x44, 0xe5 }} // {07A3CCE4-1DE7-464A-9302-F4247A9244E5}
 #define MOD_DLL_NAME "Kebeq's BNW DLL"
-#define MOD_DLL_VERSION_NUMBER ((uint) 97.1)
+#define MOD_DLL_VERSION_NUMBER ((uint) 97.6)
 #define MOD_DLL_VERSION_STATUS ""			// a (alpha), b (beta) or blank (released)
 #define MOD_DLL_CUSTOM_BUILD_NAME ""
 
@@ -752,6 +752,8 @@
 
 // Prevents AI from gold-gifting to city states. (KBQ v97.3)
 #define MOD_AI_NO_CS_GOLD_GIFTS						gCustomMods.isKBQ_AI_NO_CS_GOLD_GIFTS()
+// Adds AI behaviour support for creating Great Musician Culture Improvements (KBQ v97.6)
+#define MOD_AI_MUSICIANS_CREATE_IMPROVEMENT			gCustomMods.isKBQ_AI_MUSICIANS_CREATE_IMPROVEMENTS()
 
 // Prevents city state "Connect Resource" quests from asking for unique city state Luxuries (Jewelry, Porcelain etc.) (KBQ v97.4)
 #define MOD_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES		gCustomMods.isKBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES()
@@ -1387,6 +1389,7 @@ public:
 	// Kebeq's DLL Mod Options
 
 	MOD_OPT_DECL(KBQ_AI_NO_CS_GOLD_GIFTS);
+	MOD_OPT_DECL(KBQ_AI_MUSICIANS_CREATE_IMPROVEMENTS);
 
 	MOD_OPT_DECL(KBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES);
 

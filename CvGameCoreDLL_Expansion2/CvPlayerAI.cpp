@@ -1202,6 +1202,30 @@ GreatPeopleDirectiveTypes CvPlayerAI::GetDirectiveMusician(CvUnit* pGreatMusicia
 		}
 	}
 
+#if defined(MOD_AI_MUSICIANS_CREATE_IMPROVEMENT)
+
+	if (MOD_AI_MUSICIANS_CREATE_IMPROVEMENT) {
+
+		// If going for a culture win, plant improvement for more culture = more tourism from Hotels and such.
+		if (eDirective == NO_GREAT_PEOPLE_DIRECTIVE_TYPE && GetDiplomacyAI()->IsGoingForCultureVictory())
+		{
+			eDirective = GREAT_PEOPLE_DIRECTIVE_CONSTRUCT_IMPROVEMENT;
+		}
+
+		// Defend against ideology pressure if not going for culture win: plant improvement for more culture.
+		if (eDirective == NO_GREAT_PEOPLE_DIRECTIVE_TYPE && !GetDiplomacyAI()->IsGoingForCultureVictory() && GetCulture()->GetPublicOpinionUnhappiness() > 10)
+		{
+			eDirective = GREAT_PEOPLE_DIRECTIVE_CONSTRUCT_IMPROVEMENT;
+		}
+
+		// If not going for culture win and a Level 2 or 3 Tenet is available, try to snag it
+		if (eDirective == NO_GREAT_PEOPLE_DIRECTIVE_TYPE && !GetDiplomacyAI()->IsGoingForCultureVictory() && GetPlayerPolicies()->CanGetAdvancedTenet())
+		{
+			eDirective = GREAT_PEOPLE_DIRECTIVE_CONSTRUCT_IMPROVEMENT;
+		}
+	}
+#endif
+
 	// Create Great Work if there is a slot
 	GreatWorkType eGreatWork = pGreatMusician->GetGreatWork();
 	if (eDirective == NO_GREAT_PEOPLE_DIRECTIVE_TYPE && GetEconomicAI()->GetBestGreatWorkCity(pGreatMusician->plot(), eGreatWork))
@@ -1214,11 +1238,27 @@ GreatPeopleDirectiveTypes CvPlayerAI::GetDirectiveMusician(CvUnit* pGreatMusicia
 	else
 #endif
 	{
-		CvPlot* pTarget = FindBestMusicianTargetPlot(pGreatMusician, true);
-		if(pTarget)
+		// Great Musicians can now create/"plant" improvements.
+#if defined(MOD_AI_MUSICIANS_CREATE_IMPROVEMENT)
+		if (MOD_AI_MUSICIANS_CREATE_IMPROVEMENT) // Planting Great Musician is new fallback option.
 		{
-			eDirective = GREAT_PEOPLE_DIRECTIVE_TOURISM_BLAST;
+			// Plant Great Musician
+			if (eDirective == NO_GREAT_PEOPLE_DIRECTIVE_TYPE)
+			{
+				eDirective = GREAT_PEOPLE_DIRECTIVE_CONSTRUCT_IMPROVEMENT;
+			}
 		}
+		else // If disabled or undefined, go for concert.
+		{
+#endif
+			CvPlot* pTarget = FindBestMusicianTargetPlot(pGreatMusician, true);
+			if(pTarget)
+			{
+				eDirective = GREAT_PEOPLE_DIRECTIVE_TOURISM_BLAST;
+			}
+#if defined(MOD_AI_MUSICIANS_CREATE_IMPROVEMENT)
+		}
+#endif
 	}
 
 	return eDirective;

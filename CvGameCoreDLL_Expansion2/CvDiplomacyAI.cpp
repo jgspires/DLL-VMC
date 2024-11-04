@@ -12895,8 +12895,10 @@ void CvDiplomacyAI::DoContactMinorCivs()
 	bool bWantsToMakeGoldGift = false;
 
 	// Mod option check for disabling AI Gold Gifts to City States
+#if defined(MOD_AI_NO_CS_GOLD_GIFTS)
 	if (!MOD_AI_NO_CS_GOLD_GIFTS)
 	{
+#endif
 		// If we're a highly diplomatic leader, then always look for an opportunity
 		if(iDiplomacyFlavor >= /*4*/ GC.getMC_ALWAYS_GIFT_DIPLO_THRESHOLD() ||
 			IsGoingForDiploVictory() ||
@@ -12919,7 +12921,9 @@ void CvDiplomacyAI::DoContactMinorCivs()
 			if(iRandRoll < iThreshold)
 				bWantsToMakeGoldGift = true;
 		}
+#if defined(MOD_AI_NO_CS_GOLD_GIFTS)
 	}
+#endif
 
 	// **************************
 	// Would we like to get a unit by bullying this turn?

@@ -3554,6 +3554,15 @@ void CvHomelandAI::ExecuteMusicianMoves()
 		case GREAT_PEOPLE_DIRECTIVE_TOURISM_BLAST:
 			break;
 
+#if defined(MOD_AI_MUSICIANS_CREATE_IMPROVEMENT)
+		case GREAT_PEOPLE_DIRECTIVE_CONSTRUCT_IMPROVEMENT:
+			if (MOD_AI_MUSICIANS_CREATE_IMPROVEMENT)
+			{
+				ExecuteWorkerMove(pUnit.pointer());
+			}
+			break;
+#endif
+
 		case GREAT_PEOPLE_DIRECTIVE_USE_POWER:
 			{
 				// Do we want to create a Great Work?
