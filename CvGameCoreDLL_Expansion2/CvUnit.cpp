@@ -16661,6 +16661,9 @@ int CvUnit::setDamage(int iNewValue, PlayerTypes ePlayer, float fAdditionalTextD
 	VALIDATE_OBJECT
 	int iOldValue;
 	float fDelay = 0.0f + fAdditionalTextDelay;
+#if defined(MOD_EVENTS_UNIT_HP_CHANGED)
+	int iAttemptedDamage = iNewValue;
+#endif
 
 	iOldValue = getDamage();
 
@@ -16715,6 +16718,18 @@ int CvUnit::setDamage(int iNewValue, PlayerTypes ePlayer, float fAdditionalTextD
 				iNewValue = MIN(GC.getMAX_HIT_POINTS(),iNewValue);
 #endif
 				int iDiff = iOldValue - iNewValue;
+
+				// Send Unit HP Changed event.
+#if defined(MOD_EVENTS_UNIT_HP_CHANGED)
+				if (MOD_EVENTS_UNIT_HP_CHANGED) {
+					int iUnitHPBefore = GetMaxHitPoints() - iOldValue;
+					// (iPlayer, iUnit, iUnitType, iHPBefore, iHPAfter, iRealDamage, iAttemptedDamage, iPlotX, iPlotY)
+					GAMEEVENTINVOKE_HOOK(GAMEEVENT_UnitHPChanged, getOwner(), GetID(), getUnitType(),
+						iUnitHPBefore, GetCurrHitPoints(), iDiff, iAttemptedDamage,
+						getX(), getY());
+				}
+#endif
+
 				if(iNewValue < iOldValue)
 				{
 					text.Format("[COLOR_GREEN]+%d", iDiff);

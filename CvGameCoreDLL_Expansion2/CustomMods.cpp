@@ -490,6 +490,10 @@ int CustomMods::getOption(string sOption, int defValue) {
 		MOD_OPT_CACHE(BUGFIX_HOVERING_PATHFINDER);
 		MOD_OPT_CACHE(BUGFIX_EMBARKING_PATHFINDER);
 
+		// Kebeq's Game Events
+
+		MOD_OPT_CACHE(KBQ_EVENTS_UNIT_HP_CHANGED);
+
 		// Kebeq's DLL Mod Options
 
 		MOD_OPT_CACHE(KBQ_AI_NO_CS_GOLD_GIFTS);

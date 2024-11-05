@@ -34,7 +34,7 @@
  ****************************************************************************/
 #define MOD_DLL_GUID { 0x7a3cce4, 0x1de7, 0x464a, { 0x93, 0x2, 0xf4, 0x24, 0x7a, 0x92, 0x44, 0xe5 }} // {07A3CCE4-1DE7-464A-9302-F4247A9244E5}
 #define MOD_DLL_NAME "Kebeq's BNW DLL"
-#define MOD_DLL_VERSION_NUMBER ((uint) 97.6)
+#define MOD_DLL_VERSION_NUMBER ((uint) 97.7)
 #define MOD_DLL_VERSION_STATUS ""			// a (alpha), b (beta) or blank (released)
 #define MOD_DLL_CUSTOM_BUILD_NAME ""
 
@@ -745,7 +745,18 @@
 // Fixes a bug in the pathfinder code for embarking
 #define MOD_BUGFIX_EMBARKING_PATHFINDER             gCustomMods.isBUGFIX_EMBARKING_PATHFINDER()
 
-// Kebeq's DLL Options
+// Kebeq's GameEvents
+
+// Event sent when a unit's HP changes (KBQ v97.7)
+//   GameEvents.UnitHPChanged.Add(function(iPlayer, iUnit, iUnitType, iHPBefore, iHPAfter, iRealDamage, iAttemptedDamage, iPlotX, iPlotY) end)
+// Note: When changing HP, units cannot go below 0 HP or beyond max (by default 100) HP.
+//       If a unit takes 30 damage but it only has 16 HP, it only takes 16 damage.
+//       iRealDamage = 16 and iAttemptedDamage = 30.
+#define MOD_EVENTS_UNIT_HP_CHANGED                  gCustomMods.isKBQ_EVENTS_UNIT_HP_CHANGED()
+
+// End Kebeq's GameEvents
+
+// Kebeq's Mod Options
 
 // Fixes garrison happiness being limited to 1 (v97.1)
 #define MOD_BUGFIX_GARRISON_HAPPINESS				(true)
@@ -758,7 +769,7 @@
 // Prevents city state "Connect Resource" quests from asking for unique city state Luxuries (Jewelry, Porcelain etc.) (KBQ v97.4)
 #define MOD_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES		gCustomMods.isKBQ_GLOBAL_CS_QUEST_NO_SPECIAL_LUXURIES()
 
-// End Kebeq's DLL Options
+// End Kebeq's Mod Options
 
 #endif // ACHIEVEMENT_HACKS
 
@@ -1086,6 +1097,8 @@ enum BattleTypeTypes
 #define GAMEEVENT_UnitRangeAttackAt				"UnitRangeAttackAt",			"iiii"
 #define GAMEEVENT_UnitUpgraded					"UnitUpgraded",					"iiib"
 
+// Kebeq's GameEvent-parameter pairs
+#define GAMEEVENT_UnitHPChanged					"UnitHPChanged",				"iiiiiiiii"
 
 // Serialization wrappers
 #define MOD_SERIALIZE
@@ -1385,6 +1398,10 @@ public:
 	MOD_OPT_DECL(BUGFIX_NO_HOVERING_REBELS);
 	MOD_OPT_DECL(BUGFIX_HOVERING_PATHFINDER);
 	MOD_OPT_DECL(BUGFIX_EMBARKING_PATHFINDER);
+
+	// Kebeq's Events
+
+	MOD_OPT_DECL(KBQ_EVENTS_UNIT_HP_CHANGED);
 
 	// Kebeq's DLL Mod Options
 
